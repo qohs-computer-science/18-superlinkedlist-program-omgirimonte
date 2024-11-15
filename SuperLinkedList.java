@@ -1,34 +1,32 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Iterator;
 
 public class SuperLinkedList extends LinkedList<String> {
     public boolean removeVowels() {
+        //several if statements to check if each letter is a vowel or not and removes it if it is
         Iterator <String> iter = this.iterator();
-        String val = iter.next();
+        String val = "";
         boolean ret = false;
         while(iter.hasNext()){
+            val = iter.next().toLowerCase();
             if(val.equals("a")){
-                val = iter.next();
                 iter.remove();
                 ret = true;
             }// end else if
             else if(val.equals("e")){
-                val = iter.next();
                 iter.remove();
                 ret = true;
             }// end else if
             else if(val.equals("i")){
-                val = iter.next();
                 iter.remove();
                 ret = true;
             }// end else if
             else if(val.equals("o")){
-                val = iter.next();
                 iter.remove();
                 ret = true;
             } //end else if
             else if(val.equals("u")){
-                val = iter.next();
                 iter.remove();
                 ret = true;
             }// end else if
@@ -37,6 +35,7 @@ public class SuperLinkedList extends LinkedList<String> {
     }// end method
 
     public boolean removeConsonants() {
+        //Utilizes a loop to find each consonant in the list and removes each one after finding
         Iterator <String> iter = this.iterator();
         String val = iter.next();
         while(iter.hasNext()){
@@ -60,9 +59,10 @@ public class SuperLinkedList extends LinkedList<String> {
     }// end method
 
     public LinkedList<String> removeDuplicates() {
-        LinkedList <String> rem = new LinkedList();
-        Iterator <String> iter = this.iterator();
-        for (int i =0; x<this.size();i++){
+        //Uses two iterators in a loop and constantly checks if they are equal to each other, if they are it removes the duplicate from the first iterator
+        LinkedList <String> rem = new LinkedList<String>();
+        ListIterator <String> iter = this.listIterator();
+        for (int i =0; i<this.size();i++){
             String dub = this.get(i);
             boolean found = false;
             while(iter.hasNext()){
@@ -81,8 +81,9 @@ public class SuperLinkedList extends LinkedList<String> {
     }
 
     public LinkedList<String> concatenateStrings() {
-        LinkedList <String> fin = new LinkedList();
-        Iterator <String> iter = this.iterator();
+        //piles each string on top of each other starting from the beginning and going to the end
+        LinkedList <String> fin = new LinkedList<String>();
+        ListIterator <String> iter = this.listIterator();
         String val = iter.next();
         while(iter.hasNext()){
             if (iter.hasPrevious()){
@@ -99,9 +100,10 @@ public class SuperLinkedList extends LinkedList<String> {
     }//end method
 
     public LinkedList<String> mix(LinkedList<String> list2) {
-        LinkedList <String> mixed = new LinkedList();
-        Iterator <String> iter = this.iterator();
-        Iterator <String> iter2 = list2.iterator();
+        //method receives another list and by using a loop sends out a combined version after adding the elements from each list to the new list
+        LinkedList <String> mixed = new LinkedList<String>();
+        ListIterator <String> iter = this.listIterator();
+        ListIterator <String> iter2 = list2.listIterator();
         while (iter.hasNext()&&iter2.hasNext()){
             mixed.add(iter.next());
             mixed.add(iter2.next()); 
@@ -110,9 +112,9 @@ public class SuperLinkedList extends LinkedList<String> {
     }// end method
 
     public String toString() {
+        //Uses a loop to return a string to output later on in the tester file
         Iterator <String> iter = this.iterator();
         String out = "";
-        
         while (iter.hasNext()){
             out+=iter.next()+", ";
         }// end loop
