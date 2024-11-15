@@ -1,5 +1,5 @@
 import java.util.LinkedList;
-
+// owen girimonte period 4 11/15/2024
 class SLLTester {
   public static void main(String[] args) {
       SuperLinkedList list1 = new SuperLinkedList();

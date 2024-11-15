@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Iterator;
-
+// owen girimonte period 4 11/15/2024
 public class SuperLinkedList extends LinkedList<String> {
     public boolean removeVowels() {
         //several if statements to check if each letter is a vowel or not and removes it if it is
@@ -37,8 +37,9 @@ public class SuperLinkedList extends LinkedList<String> {
     public boolean removeConsonants() {
         //Utilizes a loop to find each consonant in the list and removes each one after finding
         Iterator <String> iter = this.iterator();
-        String val = iter.next();
+        String val = "";
         while(iter.hasNext()){
+            val = iter.next().toLowerCase();
             if(val.equals("a")==false){
                 if(val.equals("e")==false){
                     if(val.equals("i")==false){
@@ -84,8 +85,9 @@ public class SuperLinkedList extends LinkedList<String> {
         //piles each string on top of each other starting from the beginning and going to the end
         LinkedList <String> fin = new LinkedList<String>();
         ListIterator <String> iter = this.listIterator();
-        String val = iter.next();
+        String val = "";
         while(iter.hasNext()){
+            val = iter.next();
             if (iter.hasPrevious()){
                 String val2 = iter.next();
                 val= val+val2;
